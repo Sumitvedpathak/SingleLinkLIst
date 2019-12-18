@@ -119,6 +119,22 @@ namespace SingleLinkLIst
             else
                 Console.WriteLine($"Node {data} not found.");
         }
+
+        public bool Search(int data)
+        {
+            Node curr = root;
+            if (curr == null)
+                return false;
+            while (curr.next != null)
+            {
+                if (curr.data == data)
+                    return true;
+                curr = curr.next;
+            }
+            if (curr.data == data)
+                return true;
+            return false;
+        }
     }
 
     class Program
@@ -136,7 +152,8 @@ namespace SingleLinkLIst
             int length = list.Length;
             Node root = list.Root;
             Node last = list.Last;
-            list.Delete(7);
+            bool yest = list.Search(4);
+            //list.Delete(7);
         }
     }
 }
